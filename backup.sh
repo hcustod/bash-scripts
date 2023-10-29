@@ -3,7 +3,7 @@
 source_dir="$1"  #first argument is source dir.
 backup_dir="$2"  #second argument. 
 
-if [ -z "$source_dir" ] || [ -z "backup_dir" ]; then
+if [ -z "$source_dir" ] || [ -z "$backup_dir" ]; then
     echo "Usage: $0 <source_dir> <backup_dir>"
     exit 1   # return error. 
 fi 
