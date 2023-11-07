@@ -2,7 +2,7 @@
 
 check_website() {
     local website="$1"
-    if curl --head --silent --fail "$website" 2>/dev/null; then
+    if ping -c 1 "$website"; then
         echo "Website $website is online."
     else
         echo "Website $website is offline or unreachable"
@@ -11,5 +11,12 @@ check_website() {
 
 read -p "Enter a website URL to check: " website_url
 
-check_website "$websiteurl"
+website_url=$(echo "$website_url" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+
+if [ -z "$website_url" ]; then
+    echo "Invalid input. Please enter a valid website URL."
+    exit 1
+fi
+
+check_website "$websiteurl" 
 
