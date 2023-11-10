@@ -18,3 +18,33 @@ calculate_median() {
         echo "scale=2; ($middle1 + $middle2) / 2" | bc
     fi
 }
+
+# Check if there are at least two arguments
+if [ $# -lt 2 ]; then
+    echo "Usage: 0 <integer1> <integer2> [<integer3> ...]"
+    exit 1
+fi
+
+values=("$@")
+
+sum=0
+for value in "${values[@]}"; do
+    if [[ "$value" =~ ^[0-9+$] ]]; then
+        sum=$((sum + value))
+    else
+        echo "Invalid input: '$value' is not an integer." >&2
+        exit 1
+    fi
+done
+
+
+# calculate the average
+num_values=${#values[@]}
+average=$(bc <<< "scale=2; $sum / $num_values" )
+
+# calculate the median
+median=$(calculate_median "${values[@]}")
+
+echo "Values: ${values[*]}"
+echo "Average: $average"
+echo "Median: $median"
