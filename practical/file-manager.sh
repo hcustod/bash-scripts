@@ -3,14 +3,22 @@
 # This script creates a basic file management program on the terminal. 
 
 create_file() {
-    read -p "Enter the new file name: " file_name
+    while true; do 
+        echo "-----------------------------"
+        echo "------- CREATE A FILE -------"
+        echo "-----------------------------"
+        read -p "Enter a name for the new file: " file_name
 
-    if [$filename]; then
-        echo "File $file_name already exists."
-    else
-        touch $file_name
-        echo "$file_name was created."
-    fi
+        if [$filename]; then
+            echo "File $file_name already exists."
+        else
+            touch $file_name
+            echo "$file_name was created successfully."
+        fi
+
+        done_menu
+        
+    done
 }
 
 
@@ -31,6 +39,19 @@ delete_files() {
         echo "File $file_name not found."
     fi
 }
+
+
+done_menu() {
+    while true; do
+
+
+
+    done
+
+}
+
+
+
 
 # ----- Main Menu ------- 
 
