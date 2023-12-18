@@ -17,12 +17,15 @@ create_file() {
         fi
 
         done_menu
-        
+
     done
 }
 
 
 list_files() {
+    echo "-----------------------------"
+    echo "-------- FILE LISTING -------"
+    echo "-----------------------------"
     echo "Files in the current directory: "
     ls -lhtra
 }
@@ -43,8 +46,13 @@ delete_files() {
 
 done_menu() {
     while true; do
+        echo "All tasks completed."
+        echo "Would you now like to: "
+        echo "1) Run the same task again.  "
+        echo "2) Return to the main menu. "
+        echo "3) Exit the program " 
 
-
+        read -p "Enter your choice now: " user_endchoice
 
     done
 
@@ -52,10 +60,12 @@ done_menu() {
 
 
 
-
 # ----- Main Menu ------- 
 
 while true; do
+    echo "-----------------------------"
+    echo "--------- Main Menu ---------"
+    echo "-----------------------------"
     echo "File Managment Menu: "
     echo "1. Create a new file."
     echo "2. List files in the current directory. "
