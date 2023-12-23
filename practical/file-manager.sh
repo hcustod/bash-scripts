@@ -28,6 +28,9 @@ list_files() {
     echo "-----------------------------"
     echo "Files in the current directory: "
     ls -lhtra
+
+    done_menu
+
 }
 
 
@@ -41,6 +44,8 @@ delete_files() {
     else
         echo "File $file_name not found."
     fi
+
+    done_menu
 }
 
 
