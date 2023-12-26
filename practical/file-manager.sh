@@ -34,6 +34,20 @@ list_files() {
 }
 
 
+move_file() {
+    echo "Enter the file name in the current directory to move: "
+    read file_to_move
+
+    if [ -e $file_to_move ]; then
+    
+    else
+
+    fi
+
+    done_menu
+
+}
+
 delete_files() {
     echo "Enter the name of the file to delete: "
     read filename
